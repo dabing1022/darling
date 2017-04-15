@@ -48,11 +48,11 @@ def tuling_reply(msg):
     return reply
 
 itchat.auto_login(enableCmdQR=2, hotReload=True)
-itchat.run()
 
 WELCOME = u''
 WELCOME += u'欢迎使用，我是衣卒尔\n'
-WELCOME += raspberry_status_report.reportStatus()
-WELCOME += raspberry_ip_report.reportIP()
-
+WELCOME += raspberry_status_report.reportStatus() + '\n'
+WELCOME += u'IP:' + raspberry_ip_report.reportIP() + '\n'
 itchat.send(WELCOME, FILE_HELPER)
+
+itchat.run()

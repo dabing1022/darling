@@ -1,6 +1,10 @@
 #coding:utf-8
-import os
+
+import requests
 
 get_ip_command = 'curl http://members.3322.org/dyndns/getip'
 def reportIP():
-    return str(os.system(get_ip_command))
+    r = requests.get('http://members.3322.org/dyndns/getip')
+    if r.status_code == 200:
+        return r.text
+    return '0.0.0.0'
