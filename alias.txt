@@ -1,1 +1,2 @@
 alias yizuer_state='python3 ~/ChildhoodAndy/darling/raspberry/raspberry_status_report.py'
+alias yizuer_ip='curl http://members.3322.org/dyndns/getip'
