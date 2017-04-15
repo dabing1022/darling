@@ -58,15 +58,18 @@ DISK_total = DISK_stats[0]
 DISK_used = DISK_stats[1]
 DISK_perc = DISK_stats[3]
 
+def reportStatus():
+    status = ''
+    status += ('CPU Temperature = ' + CPU_temp)
+    status += ('\nCPU Use = ' + CPU_usage)
+    status += ('\nRAM Total = ' + str(RAM_total) + ' MB')
+    status += ('\nRAM Used = ' + str(RAM_used) + ' MB')
+    status += ('\nRAM Free = ' + str(RAM_free) + ' MB')
+    status += ('\n')
+    status += ('\nDISK Total Space = ' + str(DISK_total) + 'B')
+    status += ('\nDISK Used Space = ' + str(DISK_used) + 'B')
+    status += ('\nDISK Used Percentage = ' + str(DISK_perc))
+    return status
+
 if __name__ == '__main__':
-    print('')
-    print('CPU Temperature = ' + CPU_temp)
-    print('CPU Use = ' + CPU_usage)
-    print('')
-    print('RAM Total = ' + str(RAM_total) + ' MB')
-    print('RAM Used = ' + str(RAM_used) + ' MB')
-    print('RAM Free = ' + str(RAM_free) + ' MB')
-    print('')
-    print('DISK Total Space = ' + str(DISK_total) + 'B')
-    print('DISK Used Space = ' + str(DISK_used) + 'B')
-    print('DISK Used Percentage = ' + str(DISK_perc))
+    print(reportStatus())

@@ -2,6 +2,7 @@
 import requests
 import itchat
 import re
+from raspberry import raspberry_status_report
 
 DARLING = '猪仔仔'
 TULING_KEY = 'ad6c2ada8e6d4509944b7d0ab289339c'
@@ -47,4 +48,8 @@ def tuling_reply(msg):
 
 itchat.auto_login(enableCmdQR=2, hotReload=True)
 itchat.run()
-itchat.send(u'欢迎使用，我是衣卒尔', FILE_HELPER)
+
+WELCOME_WORD = u'欢迎使用，我是衣卒尔'
+STATUS_REPORT = raspberry_status_report.reportStatus()
+
+itchat.send(WELCOME_WORD + STATUS_REPORT, FILE_HELPER)
