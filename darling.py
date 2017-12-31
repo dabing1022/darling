@@ -5,11 +5,9 @@ import requests
 import itchat
 from itchat.content import *
 from config import *
-from emailSender import *
-# from raspberry import raspberry_status_report
-# from raspberry import raspberry_ip_report
+#from emailSender import *
 
-email_sender = EmailSender()
+#email_sender = EmailSender()
 
 def get_response(msg):
     data = {
@@ -47,14 +45,14 @@ def tuling_reply(msg):
 def download_files_fromGroup(msg):
     print(msg)
     msg['Text'](msg['FileName'])
-    content = u'收到文件：%s' % msg['FileName']
+    content = u'Receive File：%s' % msg['FileName']
     email_sender.send_email(content, msg['FileName'])
 
 @itchat.msg_register([ATTACHMENT])
 def download_files_fromPerson(msg):
     print(msg)
     msg['Text'](msg['FileName'])
-    content = u'收到文件：%s' % msg['FileName']
+    content = u'Recevie File：%s' % msg['FileName']
     email_sender.send_email(content, msg['FileName'])
 
 
@@ -64,9 +62,7 @@ if __name__ == '__main__':
 
     # welcome
     WELCOME = u''
-    WELCOME += u'欢迎使用，我是衣卒尔\n'
-    # WELCOME += raspberry_status_report.reportStatus() + '\n'
-    # WELCOME += u'IP:' + raspberry_ip_report.reportIP() + '\n'
+    WELCOME += u'Welcome, I am ChildhoodAndy AI Helper. You can call me Mike.\n'
     itchat.send(WELCOME, FILE_HELPER)
 
     # run
